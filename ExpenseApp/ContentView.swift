@@ -14,23 +14,29 @@ struct ContentView: View {
         TabView(selection: $selectedIndex) {
             NavigationStack() {
                 VStack {
-                    HStack{
+                    ForEach(ExpensesData.expensesTest, id:\.self){expense in
+                        Text("test")
+                    }
+                }
+                .navigationTitle("Expenses")
+                .toolbar{
+                    ToolbarItem(placement: .topBarLeading){
                         Button{
                             
                         } label: {
                             Text("Edit")
                         }
-                        Spacer()
+                    }
+                }
+                .toolbar{
+                    ToolbarItem(placement: .topBarTrailing){
                         Button{
                             
                         } label: {
                             Text("Add")
                         }
                     }
-                    .padding(EdgeInsets(top: 10, leading:20, bottom: 0, trailing:20))
-                    Spacer()
                 }
-                .navigationTitle("Expenses")
             }
             .tabItem {
                 Text("Expenses")
